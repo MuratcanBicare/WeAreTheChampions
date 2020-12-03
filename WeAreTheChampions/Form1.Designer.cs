@@ -139,6 +139,7 @@ namespace WeAreTheChampions
             this.chkHide.TabIndex = 6;
             this.chkHide.Text = "Hide Completed Match";
             this.chkHide.UseVisualStyleBackColor = true;
+            this.chkHide.CheckedChanged += new System.EventHandler(this.chkHide_CheckedChanged);
             // 
             // Form1
             // 

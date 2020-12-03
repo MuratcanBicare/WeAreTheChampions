@@ -100,7 +100,7 @@ namespace WeAreTheChampions
             frmAddMatchForm.ShowDialog();
         }
 
-        private void chkHideCompleted_CheckedChanged(object sender, EventArgs e)
+        private void chkHide_CheckedChanged(object sender, EventArgs e)
         {
             ListMatches();
         }
