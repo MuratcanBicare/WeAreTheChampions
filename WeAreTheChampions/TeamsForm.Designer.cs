@@ -130,7 +130,7 @@ namespace WeAreTheChampions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(535, 554);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstTeams);
             this.Controls.Add(this.btnDelete);
@@ -141,7 +141,7 @@ namespace WeAreTheChampions
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TeamsForm";
             this.Text = "TeamsForm";
             this.ResumeLayout(false);

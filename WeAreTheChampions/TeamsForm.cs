@@ -34,9 +34,9 @@ namespace WeAreTheChampions
                 var selectedTeam = (Team)lstTeams.SelectedItem;
                 selectedTeam.TeamName = txtTeamName.Text;
                 db.SaveChanges();
-                WhenMakeChange(EventArgs.Empty);
                 ListTeams();
                 ResetForm();
+                WhenMakeChange(EventArgs.Empty);
                 return;
             }
             db.Teams.Add(new Team() { TeamName = txtTeamName.Text });
@@ -54,6 +54,8 @@ namespace WeAreTheChampions
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (lstTeams.SelectedIndex < 0) return;
+            
             var selectedTeam = (Team)lstTeams.SelectedItem;
             db.Teams.Remove(selectedTeam);
             db.SaveChanges();
@@ -63,6 +65,7 @@ namespace WeAreTheChampions
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (lstTeams.SelectedIndex < 0) return;
             //Edit Mode Activated
             lstTeams.Enabled = false;
             var selectedTeam = (Team)lstTeams.SelectedItem;

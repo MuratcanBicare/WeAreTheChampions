@@ -78,6 +78,7 @@ namespace WeAreTheChampions
             this.tsmiPlayers.Name = "tsmiPlayers";
             this.tsmiPlayers.Size = new System.Drawing.Size(56, 20);
             this.tsmiPlayers.Text = "Players";
+            this.tsmiPlayers.Click += new System.EventHandler(this.tsmiPlayers_Click);
             // 
             // dgvMatches
             // 
