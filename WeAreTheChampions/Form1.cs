@@ -104,5 +104,18 @@ namespace WeAreTheChampions
         {
             ListMatches();
         }
+
+        private void tsmiTeams_Click(object sender, EventArgs e)
+        {
+            TeamsForm frmTeamsForm = new TeamsForm(db);
+            frmTeamsForm.HasBeenChanged += FrmTeamsForm_HasBeenChanged;
+            frmTeamsForm.ShowDialog();
+        }
+
+        private void FrmTeamsForm_HasBeenChanged(object sender, EventArgs e)
+        {
+            ResultControl();
+            ListMatches();
+        }
     }
 }

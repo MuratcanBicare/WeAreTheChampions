@@ -34,9 +34,9 @@ namespace WeAreTheChampions
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.takımlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oyuncularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oyuncularToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiTeams = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiColors = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPlayers = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvMatches = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -50,9 +50,9 @@ namespace WeAreTheChampions
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.takımlarToolStripMenuItem,
-            this.oyuncularToolStripMenuItem,
-            this.oyuncularToolStripMenuItem1});
+            this.tsmiTeams,
+            this.tsmiColors,
+            this.tsmiPlayers});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -60,23 +60,24 @@ namespace WeAreTheChampions
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // takımlarToolStripMenuItem
+            // tsmiTeams
             // 
-            this.takımlarToolStripMenuItem.Name = "takımlarToolStripMenuItem";
-            this.takımlarToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.takımlarToolStripMenuItem.Text = "Teams";
+            this.tsmiTeams.Name = "tsmiTeams";
+            this.tsmiTeams.Size = new System.Drawing.Size(54, 20);
+            this.tsmiTeams.Text = "Teams";
+            this.tsmiTeams.Click += new System.EventHandler(this.tsmiTeams_Click);
             // 
-            // oyuncularToolStripMenuItem
+            // tsmiColors
             // 
-            this.oyuncularToolStripMenuItem.Name = "oyuncularToolStripMenuItem";
-            this.oyuncularToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.oyuncularToolStripMenuItem.Text = "Team Colors";
+            this.tsmiColors.Name = "tsmiColors";
+            this.tsmiColors.Size = new System.Drawing.Size(86, 20);
+            this.tsmiColors.Text = "Team Colors";
             // 
-            // oyuncularToolStripMenuItem1
+            // tsmiPlayers
             // 
-            this.oyuncularToolStripMenuItem1.Name = "oyuncularToolStripMenuItem1";
-            this.oyuncularToolStripMenuItem1.Size = new System.Drawing.Size(56, 20);
-            this.oyuncularToolStripMenuItem1.Text = "Players";
+            this.tsmiPlayers.Name = "tsmiPlayers";
+            this.tsmiPlayers.Size = new System.Drawing.Size(56, 20);
+            this.tsmiPlayers.Text = "Players";
             // 
             // dgvMatches
             // 
@@ -169,9 +170,9 @@ namespace WeAreTheChampions
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem takımlarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oyuncularToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oyuncularToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiTeams;
+        private System.Windows.Forms.ToolStripMenuItem tsmiColors;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPlayers;
         private System.Windows.Forms.DataGridView dgvMatches;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAdd;
