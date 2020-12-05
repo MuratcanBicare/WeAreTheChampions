@@ -72,6 +72,7 @@ namespace WeAreTheChampions
             this.tsmiColors.Name = "tsmiColors";
             this.tsmiColors.Size = new System.Drawing.Size(86, 20);
             this.tsmiColors.Text = "Team Colors";
+            this.tsmiColors.Click += new System.EventHandler(this.tsmiColors_Click);
             // 
             // tsmiPlayers
             // 

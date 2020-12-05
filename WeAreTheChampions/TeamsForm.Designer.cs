@@ -32,25 +32,28 @@ namespace WeAreTheChampions
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTeamName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnList = new System.Windows.Forms.Button();
+            this.btnListPlayers = new System.Windows.Forms.Button();
             this.lstTeams = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.lblColorFirst = new System.Windows.Forms.Label();
-            this.lblColorSecond = new System.Windows.Forms.Label();
             this.colorDialogFirst = new System.Windows.Forms.ColorDialog();
             this.colorDialogSecond = new System.Windows.Forms.ColorDialog();
+            this.cboFirstColor = new System.Windows.Forms.ComboBox();
+            this.cboSecondColor = new System.Windows.Forms.ComboBox();
+            this.lblFirstColor = new System.Windows.Forms.Label();
+            this.lblSecondColor = new System.Windows.Forms.Label();
             this.lblBg = new System.Windows.Forms.Label();
             this.lblBg2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(26, 42);
+            this.label1.Location = new System.Drawing.Point(26, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 0;
@@ -70,18 +73,8 @@ namespace WeAreTheChampions
             // 
             this.txtTeamName.Location = new System.Drawing.Point(30, 87);
             this.txtTeamName.Name = "txtTeamName";
-            this.txtTeamName.Size = new System.Drawing.Size(161, 22);
+            this.txtTeamName.Size = new System.Drawing.Size(180, 22);
             this.txtTeamName.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(261, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Colors";
             // 
             // btnDelete
             // 
@@ -103,14 +96,15 @@ namespace WeAreTheChampions
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnList
+            // btnListPlayers
             // 
-            this.btnList.Location = new System.Drawing.Point(30, 143);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(474, 37);
-            this.btnList.TabIndex = 6;
-            this.btnList.Text = "List Players📜";
-            this.btnList.UseVisualStyleBackColor = true;
+            this.btnListPlayers.Location = new System.Drawing.Point(30, 149);
+            this.btnListPlayers.Name = "btnListPlayers";
+            this.btnListPlayers.Size = new System.Drawing.Size(474, 31);
+            this.btnListPlayers.TabIndex = 6;
+            this.btnListPlayers.Text = "List Players📜";
+            this.btnListPlayers.UseVisualStyleBackColor = true;
+            this.btnListPlayers.Click += new System.EventHandler(this.btnListPlayers_Click);
             // 
             // lstTeams
             // 
@@ -125,37 +119,13 @@ namespace WeAreTheChampions
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(418, 87);
+            this.btnAdd.Location = new System.Drawing.Point(30, 115);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(86, 37);
+            this.btnAdd.Size = new System.Drawing.Size(474, 28);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add ➕";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // lblColorFirst
-            // 
-            this.lblColorFirst.AutoSize = true;
-            this.lblColorFirst.BackColor = System.Drawing.Color.Transparent;
-            this.lblColorFirst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblColorFirst.Location = new System.Drawing.Point(261, 84);
-            this.lblColorFirst.Name = "lblColorFirst";
-            this.lblColorFirst.Size = new System.Drawing.Size(121, 18);
-            this.lblColorFirst.TabIndex = 11;
-            this.lblColorFirst.Text = "☝ Choose first color";
-            this.lblColorFirst.Click += new System.EventHandler(this.lblColorFirst_Click);
-            // 
-            // lblColorSecond
-            // 
-            this.lblColorSecond.AutoSize = true;
-            this.lblColorSecond.BackColor = System.Drawing.Color.Transparent;
-            this.lblColorSecond.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblColorSecond.Location = new System.Drawing.Point(261, 108);
-            this.lblColorSecond.Name = "lblColorSecond";
-            this.lblColorSecond.Size = new System.Drawing.Size(146, 18);
-            this.lblColorSecond.TabIndex = 12;
-            this.lblColorSecond.Text = "☝ Choose second color";
-            this.lblColorSecond.Click += new System.EventHandler(this.lblColorSecond_Click);
             // 
             // colorDialogFirst
             // 
@@ -171,38 +141,95 @@ namespace WeAreTheChampions
             this.colorDialogSecond.FullOpen = true;
             this.colorDialogSecond.SolidColorOnly = true;
             // 
+            // cboFirstColor
+            // 
+            this.cboFirstColor.DisplayMember = "ColorName";
+            this.cboFirstColor.FormattingEnabled = true;
+            this.cboFirstColor.Location = new System.Drawing.Point(315, 60);
+            this.cboFirstColor.Name = "cboFirstColor";
+            this.cboFirstColor.Size = new System.Drawing.Size(147, 24);
+            this.cboFirstColor.TabIndex = 15;
+            this.cboFirstColor.SelectedIndexChanged += new System.EventHandler(this.cboFirstColor_SelectedIndexChanged);
+            // 
+            // cboSecondColor
+            // 
+            this.cboSecondColor.DisplayMember = "ColorName";
+            this.cboSecondColor.FormattingEnabled = true;
+            this.cboSecondColor.Location = new System.Drawing.Point(315, 87);
+            this.cboSecondColor.Name = "cboSecondColor";
+            this.cboSecondColor.Size = new System.Drawing.Size(147, 24);
+            this.cboSecondColor.TabIndex = 16;
+            this.cboSecondColor.SelectedIndexChanged += new System.EventHandler(this.cboSecondColor_SelectedIndexChanged);
+            // 
+            // lblFirstColor
+            // 
+            this.lblFirstColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFirstColor.Location = new System.Drawing.Point(468, 60);
+            this.lblFirstColor.Name = "lblFirstColor";
+            this.lblFirstColor.Size = new System.Drawing.Size(35, 24);
+            this.lblFirstColor.TabIndex = 17;
+            // 
+            // lblSecondColor
+            // 
+            this.lblSecondColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSecondColor.Location = new System.Drawing.Point(468, 89);
+            this.lblSecondColor.Name = "lblSecondColor";
+            this.lblSecondColor.Size = new System.Drawing.Size(36, 24);
+            this.lblSecondColor.TabIndex = 18;
+            // 
             // lblBg
             // 
-            this.lblBg.BackColor = System.Drawing.Color.Transparent;
-            this.lblBg.Location = new System.Drawing.Point(1, 1);
+            this.lblBg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBg.Location = new System.Drawing.Point(0, 0);
             this.lblBg.Name = "lblBg";
-            this.lblBg.Size = new System.Drawing.Size(534, 13);
-            this.lblBg.TabIndex = 13;
+            this.lblBg.Size = new System.Drawing.Size(535, 17);
+            this.lblBg.TabIndex = 19;
             // 
             // lblBg2
             // 
-            this.lblBg2.BackColor = System.Drawing.Color.Transparent;
-            this.lblBg2.Location = new System.Drawing.Point(1, 14);
+            this.lblBg2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBg2.Location = new System.Drawing.Point(0, 17);
             this.lblBg2.Name = "lblBg2";
-            this.lblBg2.Size = new System.Drawing.Size(534, 13);
-            this.lblBg2.TabIndex = 14;
+            this.lblBg2.Size = new System.Drawing.Size(535, 17);
+            this.lblBg2.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(238, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "First Color:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(216, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Second Color:";
             // 
             // TeamsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(535, 554);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblBg2);
             this.Controls.Add(this.lblBg);
-            this.Controls.Add(this.lblColorSecond);
-            this.Controls.Add(this.lblColorFirst);
+            this.Controls.Add(this.lblSecondColor);
+            this.Controls.Add(this.lblFirstColor);
+            this.Controls.Add(this.cboSecondColor);
+            this.Controls.Add(this.cboFirstColor);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstTeams);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnList);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnListPlayers);
             this.Controls.Add(this.txtTeamName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -220,17 +247,20 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTeamName;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnList;
+        private System.Windows.Forms.Button btnListPlayers;
         private System.Windows.Forms.ListBox lstTeams;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label lblColorFirst;
-        private System.Windows.Forms.Label lblColorSecond;
         private System.Windows.Forms.ColorDialog colorDialogFirst;
         private System.Windows.Forms.ColorDialog colorDialogSecond;
+        private System.Windows.Forms.ComboBox cboFirstColor;
+        private System.Windows.Forms.ComboBox cboSecondColor;
+        private System.Windows.Forms.Label lblFirstColor;
+        private System.Windows.Forms.Label lblSecondColor;
         private System.Windows.Forms.Label lblBg;
         private System.Windows.Forms.Label lblBg2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

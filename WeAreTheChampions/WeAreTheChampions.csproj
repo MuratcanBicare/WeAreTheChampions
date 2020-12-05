@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorsForm.Designer.cs">
+      <DependentUpon>ColorsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="TeamsForm.Designer.cs">
       <DependentUpon>TeamsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ColorsForm.resx">
+      <DependentUpon>ColorsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
