@@ -38,13 +38,19 @@ namespace WeAreTheChampions
             this.btnList = new System.Windows.Forms.Button();
             this.lstTeams = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.lblColorFirst = new System.Windows.Forms.Label();
+            this.lblColorSecond = new System.Windows.Forms.Label();
+            this.colorDialogFirst = new System.Windows.Forms.ColorDialog();
+            this.colorDialogSecond = new System.Windows.Forms.ColorDialog();
+            this.lblBg = new System.Windows.Forms.Label();
+            this.lblBg2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(27, 9);
+            this.label1.Location = new System.Drawing.Point(26, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 0;
@@ -54,7 +60,7 @@ namespace WeAreTheChampions
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(27, 48);
+            this.label2.Location = new System.Drawing.Point(27, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 1;
@@ -62,7 +68,7 @@ namespace WeAreTheChampions
             // 
             // txtTeamName
             // 
-            this.txtTeamName.Location = new System.Drawing.Point(30, 64);
+            this.txtTeamName.Location = new System.Drawing.Point(30, 87);
             this.txtTeamName.Name = "txtTeamName";
             this.txtTeamName.Size = new System.Drawing.Size(161, 22);
             this.txtTeamName.TabIndex = 2;
@@ -71,7 +77,7 @@ namespace WeAreTheChampions
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(264, 48);
+            this.label3.Location = new System.Drawing.Point(261, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 3;
@@ -115,10 +121,11 @@ namespace WeAreTheChampions
             this.lstTeams.Name = "lstTeams";
             this.lstTeams.Size = new System.Drawing.Size(474, 308);
             this.lstTeams.TabIndex = 9;
+            this.lstTeams.SelectedIndexChanged += new System.EventHandler(this.lstTeams_SelectedIndexChanged);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(418, 84);
+            this.btnAdd.Location = new System.Drawing.Point(418, 87);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(86, 37);
             this.btnAdd.TabIndex = 10;
@@ -126,11 +133,70 @@ namespace WeAreTheChampions
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // lblColorFirst
+            // 
+            this.lblColorFirst.AutoSize = true;
+            this.lblColorFirst.BackColor = System.Drawing.Color.Transparent;
+            this.lblColorFirst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColorFirst.Location = new System.Drawing.Point(261, 84);
+            this.lblColorFirst.Name = "lblColorFirst";
+            this.lblColorFirst.Size = new System.Drawing.Size(121, 18);
+            this.lblColorFirst.TabIndex = 11;
+            this.lblColorFirst.Text = "☝ Choose first color";
+            this.lblColorFirst.Click += new System.EventHandler(this.lblColorFirst_Click);
+            // 
+            // lblColorSecond
+            // 
+            this.lblColorSecond.AutoSize = true;
+            this.lblColorSecond.BackColor = System.Drawing.Color.Transparent;
+            this.lblColorSecond.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblColorSecond.Location = new System.Drawing.Point(261, 108);
+            this.lblColorSecond.Name = "lblColorSecond";
+            this.lblColorSecond.Size = new System.Drawing.Size(146, 18);
+            this.lblColorSecond.TabIndex = 12;
+            this.lblColorSecond.Text = "☝ Choose second color";
+            this.lblColorSecond.Click += new System.EventHandler(this.lblColorSecond_Click);
+            // 
+            // colorDialogFirst
+            // 
+            this.colorDialogFirst.AnyColor = true;
+            this.colorDialogFirst.Color = System.Drawing.Color.DimGray;
+            this.colorDialogFirst.FullOpen = true;
+            this.colorDialogFirst.SolidColorOnly = true;
+            // 
+            // colorDialogSecond
+            // 
+            this.colorDialogSecond.AnyColor = true;
+            this.colorDialogSecond.Color = System.Drawing.Color.DimGray;
+            this.colorDialogSecond.FullOpen = true;
+            this.colorDialogSecond.SolidColorOnly = true;
+            // 
+            // lblBg
+            // 
+            this.lblBg.BackColor = System.Drawing.Color.Transparent;
+            this.lblBg.Location = new System.Drawing.Point(1, 1);
+            this.lblBg.Name = "lblBg";
+            this.lblBg.Size = new System.Drawing.Size(534, 13);
+            this.lblBg.TabIndex = 13;
+            // 
+            // lblBg2
+            // 
+            this.lblBg2.BackColor = System.Drawing.Color.Transparent;
+            this.lblBg2.Location = new System.Drawing.Point(1, 14);
+            this.lblBg2.Name = "lblBg2";
+            this.lblBg2.Size = new System.Drawing.Size(534, 13);
+            this.lblBg2.TabIndex = 14;
+            // 
             // TeamsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(535, 554);
+            this.Controls.Add(this.lblBg2);
+            this.Controls.Add(this.lblBg);
+            this.Controls.Add(this.lblColorSecond);
+            this.Controls.Add(this.lblColorFirst);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstTeams);
             this.Controls.Add(this.btnDelete);
@@ -160,5 +226,11 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.ListBox lstTeams;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label lblColorFirst;
+        private System.Windows.Forms.Label lblColorSecond;
+        private System.Windows.Forms.ColorDialog colorDialogFirst;
+        private System.Windows.Forms.ColorDialog colorDialogSecond;
+        private System.Windows.Forms.Label lblBg;
+        private System.Windows.Forms.Label lblBg2;
     }
 }
