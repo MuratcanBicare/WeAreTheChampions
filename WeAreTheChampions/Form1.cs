@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeAreTheChampions.Model;
+using WMPLib;
 
 namespace WeAreTheChampions
 {
@@ -15,11 +16,14 @@ namespace WeAreTheChampions
     public partial class Form1 : Form
     {
         WeAreTheChampionsContext db = new WeAreTheChampionsContext();
+        WindowsMediaPlayer wplayer = new WindowsMediaPlayer();
         public Form1()
         {
             InitializeComponent();
             ResultControl();
             ListMatches();
+            wplayer.URL ="cl.mp3";
+            wplayer.settings.setMode("loop", true);
         }
 
         private void ResultControl()
@@ -129,6 +133,25 @@ namespace WeAreTheChampions
         {
             ColorsForm frmColorsForm = new ColorsForm(db);
             frmColorsForm.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            wplayer.controls.play();
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            wplayer.controls.play();
+            btnStop.Visible = true;
+            btnPlay.Visible = false;
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            wplayer.controls.pause();
+            btnStop.Visible = false;
+            btnPlay.Visible = true;
         }
     }
 }

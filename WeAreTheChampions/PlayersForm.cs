@@ -26,7 +26,9 @@ namespace WeAreTheChampions
 
         private void ListPlayersTeam()
         {
-            var teams = db.Teams.ToList().Where(x => !x.TeamName.Contains("Closed")).ToList();
+            var teams = db.Teams.ToList()
+                .Where(x => !x.TeamName.Contains("Closed"))
+                .ToList();
             teams.Insert(0, new Team { TeamName = "Select Team" });
             teams.Insert(1, new Team { TeamName = "Free Agency" });
             cboPlayersTeam.DataSource = teams;
@@ -34,7 +36,9 @@ namespace WeAreTheChampions
 
         private void ListTeams()
         {
-            var teams = db.Teams.ToList().Where(x=> !x.TeamName.Contains("Closed")).ToList();
+            var teams = db.Teams.ToList()
+                .Where(x=> !x.TeamName.Contains("Closed"))
+                .ToList();
             teams.Insert(0, new Team { TeamName = "All" });
             teams.Insert(1, new Team { TeamName = "Free Agency" });
             cboTeams.DataSource = teams;
@@ -72,7 +76,9 @@ namespace WeAreTheChampions
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (cboPlayersTeam.SelectedIndex == 0)
+            string playerName = txtPlayerName.Text.Trim().UpperCaseFirst();
+
+            if (cboPlayersTeam.SelectedIndex == 0 || playerName == "")
             {
                 MessageBox.Show("You have to choose team.");
                 return;
@@ -80,7 +86,7 @@ namespace WeAreTheChampions
             if (btnAdd.Text == "💾 Save")
             {
                 var selectedPlayer = (Player)lstPlayers.SelectedItem;
-                selectedPlayer.PlayerName = txtPlayerName.Text;
+                selectedPlayer.PlayerName = playerName;
                 var teamEdit = (Team)cboPlayersTeam.SelectedItem;
                 selectedPlayer.Team = cboPlayersTeam.SelectedIndex == 1 ? null : teamEdit;
                 db.SaveChanges();
@@ -89,12 +95,7 @@ namespace WeAreTheChampions
                 //WhenMakeChange(EventArgs.Empty);
                 return;
             }
-            string playerName = txtPlayerName.Text.Trim();
-            if (cboPlayersTeam.SelectedIndex == 0 || playerName == "")
-            {
-                MessageBox.Show("Please fill all cells correctly.");
-                return;
-            }
+           
 
             var team = (Team)cboPlayersTeam.SelectedItem;
             db.Players.Add(new Player()

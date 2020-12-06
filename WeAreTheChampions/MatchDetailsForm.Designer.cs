@@ -51,6 +51,10 @@ namespace WeAreTheChampions
             this.label11 = new System.Windows.Forms.Label();
             this.nudScore2 = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lblHTeamC1 = new System.Windows.Forms.Label();
+            this.lblHTeamC2 = new System.Windows.Forms.Label();
+            this.lblATeamC2 = new System.Windows.Forms.Label();
+            this.lblATeamC1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudScore1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudScore2)).BeginInit();
             this.SuspendLayout();
@@ -258,11 +262,47 @@ namespace WeAreTheChampions
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // lblHTeamC1
+            // 
+            this.lblHTeamC1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblHTeamC1.Location = new System.Drawing.Point(20, 301);
+            this.lblHTeamC1.Name = "lblHTeamC1";
+            this.lblHTeamC1.Size = new System.Drawing.Size(36, 36);
+            this.lblHTeamC1.TabIndex = 22;
+            // 
+            // lblHTeamC2
+            // 
+            this.lblHTeamC2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblHTeamC2.Location = new System.Drawing.Point(62, 301);
+            this.lblHTeamC2.Name = "lblHTeamC2";
+            this.lblHTeamC2.Size = new System.Drawing.Size(36, 36);
+            this.lblHTeamC2.TabIndex = 23;
+            // 
+            // lblATeamC2
+            // 
+            this.lblATeamC2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblATeamC2.Location = new System.Drawing.Point(531, 301);
+            this.lblATeamC2.Name = "lblATeamC2";
+            this.lblATeamC2.Size = new System.Drawing.Size(36, 36);
+            this.lblATeamC2.TabIndex = 25;
+            // 
+            // lblATeamC1
+            // 
+            this.lblATeamC1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblATeamC1.Location = new System.Drawing.Point(489, 301);
+            this.lblATeamC1.Name = "lblATeamC1";
+            this.lblATeamC1.Size = new System.Drawing.Size(36, 36);
+            this.lblATeamC1.TabIndex = 24;
+            // 
             // MatchDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 547);
+            this.Controls.Add(this.lblATeamC2);
+            this.Controls.Add(this.lblATeamC1);
+            this.Controls.Add(this.lblHTeamC2);
+            this.Controls.Add(this.lblHTeamC1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.nudScore2);
             this.Controls.Add(this.label11);
@@ -318,5 +358,9 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown nudScore2;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label lblHTeamC1;
+        private System.Windows.Forms.Label lblHTeamC2;
+        private System.Windows.Forms.Label lblATeamC2;
+        private System.Windows.Forms.Label lblATeamC1;
     }
 }

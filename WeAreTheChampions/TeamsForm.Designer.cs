@@ -78,12 +78,14 @@ namespace WeAreTheChampions
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Maroon;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(368, 504);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(136, 39);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete🚮";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
@@ -98,12 +100,14 @@ namespace WeAreTheChampions
             // 
             // btnListPlayers
             // 
+            this.btnListPlayers.BackColor = System.Drawing.Color.Gold;
+            this.btnListPlayers.ForeColor = System.Drawing.Color.White;
             this.btnListPlayers.Location = new System.Drawing.Point(30, 149);
             this.btnListPlayers.Name = "btnListPlayers";
             this.btnListPlayers.Size = new System.Drawing.Size(474, 31);
             this.btnListPlayers.TabIndex = 6;
             this.btnListPlayers.Text = "List Players📜";
-            this.btnListPlayers.UseVisualStyleBackColor = true;
+            this.btnListPlayers.UseVisualStyleBackColor = false;
             this.btnListPlayers.Click += new System.EventHandler(this.btnListPlayers_Click);
             // 
             // lstTeams
@@ -119,12 +123,14 @@ namespace WeAreTheChampions
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Chartreuse;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(30, 115);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(474, 28);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add ➕";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // colorDialogFirst

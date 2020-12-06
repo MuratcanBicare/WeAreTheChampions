@@ -32,11 +32,17 @@ namespace WeAreTheChampions
 
         private void ListTeams()
         {
-            lstTeams.DataSource = db.Teams.ToList();
+            lstTeams.DataSource = db.Teams.Where(x => !x.TeamName.Contains("(Closed)")).ToList();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            var teamName = txtTeamName.Text.UpperCaseFirst().Trim();
+            if (teamName == "")
+            {
+                MessageBox.Show("Please fill team name fields correctly.");
+                return;
+            }
             var color1 = (Model.Color)cboFirstColor.SelectedItem;
             var color2 = (Model.Color)cboSecondColor.SelectedItem;
             if (color1 == null || color2 == null)
@@ -51,7 +57,13 @@ namespace WeAreTheChampions
             if (btnAdd.Text == "💾 Save")
             {
                 var selectedTeam = (Team)lstTeams.SelectedItem;
-                selectedTeam.TeamName = txtTeamName.Text;
+                selectedTeam.TeamName = txtTeamName.Text.Trim();
+                if (db.Teams.ToList().Any(x => x.TeamName.ToLower() == teamName.ToLower().Replace(" ", "")))
+                {
+                    MessageBox.Show("Please enter different team name.");
+                    return;
+                }
+                selectedTeam.TeamName = teamName;
                 selectedTeam.TeamColors = colors;
                 db.SaveChanges();
                 ListTeams();
@@ -59,7 +71,12 @@ namespace WeAreTheChampions
                 WhenMakeChange(EventArgs.Empty);
                 return;
             }
-            db.Teams.Add(new Team() { TeamName = txtTeamName.Text, TeamColors = colors });
+            if (db.Teams.ToList().Any(x => x.TeamName.ToLower() == teamName.ToLower().Replace(" ", "")))
+            {
+                MessageBox.Show("There has already been a team in the list. Please try to enter different team name");
+                return;
+            }
+            db.Teams.Add(new Team() { TeamName = teamName, TeamColors = colors });
             db.SaveChanges();
             ListTeams();
             ResetForm();
@@ -70,7 +87,11 @@ namespace WeAreTheChampions
 
         private void ResetForm()
         {
+            btnEdit.Text = "Edit ✏";
+            btnEdit.BackColor = System.Drawing.Color.DarkKhaki;
             txtTeamName.Clear();
+            cboFirstColor.SelectedIndex = cboSecondColor.SelectedIndex = -1;
+            lblFirstColor.BackColor = lblSecondColor.BackColor = System.Drawing.Color.Transparent;
             lstTeams.Enabled = true;
             btnAdd.Text = "Add ➕";
         }
@@ -107,12 +128,31 @@ namespace WeAreTheChampions
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (btnEdit.Text == "❌ Cancel")
+            {
+                ResetForm();
+                return;
+            }
+            btnEdit.Text = "❌ Cancel";
+            btnEdit.BackColor = System.Drawing.Color.Red;
             if (lstTeams.SelectedIndex < 0) return;
             //Edit Mode Activated
             lstTeams.Enabled = false;
             var selectedTeam = (Team)lstTeams.SelectedItem;
+            List<Model.Color> colors = selectedTeam.TeamColors.ToList();
+            lblFirstColor.BackColor = System.Drawing.Color.FromArgb(colors[0].Red, colors[0].Green, colors[0].Blue);
+            lblSecondColor.BackColor = System.Drawing.Color.FromArgb(colors[1].Red, colors[1].Green, colors[1].Blue);
             btnAdd.Text = "💾 Save";
             txtTeamName.Text = selectedTeam.TeamName;
+            if (colors.Count == 1)
+            {
+                cboFirstColor.SelectedItem = colors[0];
+            }
+            else if (colors.Count == 2)
+            {
+                cboFirstColor.SelectedItem = colors[0];
+                cboSecondColor.SelectedItem = colors[1];
+            }
 
         }
 

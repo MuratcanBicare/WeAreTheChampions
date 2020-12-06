@@ -43,12 +43,15 @@ namespace WeAreTheChampions
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.chkHide = new System.Windows.Forms.CheckBox();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiTeams,
             this.tsmiColors,
@@ -56,7 +59,7 @@ namespace WeAreTheChampions
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(934, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(631, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -77,7 +80,7 @@ namespace WeAreTheChampions
             // tsmiPlayers
             // 
             this.tsmiPlayers.Name = "tsmiPlayers";
-            this.tsmiPlayers.Size = new System.Drawing.Size(56, 20);
+            this.tsmiPlayers.Size = new System.Drawing.Size(58, 20);
             this.tsmiPlayers.Text = "Players";
             this.tsmiPlayers.Click += new System.EventHandler(this.tsmiPlayers_Click);
             // 
@@ -90,53 +93,59 @@ namespace WeAreTheChampions
             this.dgvMatches.Name = "dgvMatches";
             this.dgvMatches.ReadOnly = true;
             this.dgvMatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMatches.Size = new System.Drawing.Size(909, 381);
+            this.dgvMatches.Size = new System.Drawing.Size(605, 381);
             this.dgvMatches.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.Size = new System.Drawing.Size(77, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Matches";
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(15, 459);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(136, 37);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "➕ New Match";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(176, 459);
+            this.btnEdit.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnEdit.Location = new System.Drawing.Point(252, 458);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(136, 37);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Edit ✏";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(341, 457);
+            this.btnDelete.BackColor = System.Drawing.Color.Maroon;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(483, 457);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(136, 39);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete🚮";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // chkHide
             // 
             this.chkHide.AutoSize = true;
-            this.chkHide.Location = new System.Drawing.Point(770, 37);
+            this.chkHide.Location = new System.Drawing.Point(467, 41);
             this.chkHide.Name = "chkHide";
             this.chkHide.Size = new System.Drawing.Size(152, 19);
             this.chkHide.TabIndex = 6;
@@ -144,11 +153,36 @@ namespace WeAreTheChampions
             this.chkHide.UseVisualStyleBackColor = true;
             this.chkHide.CheckedChanged += new System.EventHandler(this.chkHide_CheckedChanged);
             // 
+            // btnPlay
+            // 
+            this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnPlay.Location = new System.Drawing.Point(301, 30);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(45, 35);
+            this.btnPlay.TabIndex = 8;
+            this.btnPlay.Text = "▶";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnStop.Location = new System.Drawing.Point(301, 29);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(45, 35);
+            this.btnStop.TabIndex = 8;
+            this.btnStop.Text = "🔇";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 519);
+            this.BackColor = System.Drawing.Color.Green;
+            this.ClientSize = new System.Drawing.Size(631, 519);
+            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.chkHide);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -160,7 +194,8 @@ namespace WeAreTheChampions
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "WeAreTheChampions";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).EndInit();
@@ -181,6 +216,8 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.CheckBox chkHide;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 
